@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random User API with FetchHelper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      background-color: #111;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background-color: black;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="user-cards-container">
+    <!-- Cards will be inserted here dynamically -->
+  </div>
+
+  <script type="module">
+
+    /*I put this examples code so you can test the API out in the browser with 2 different APIs. */
+    import FetchHelper from '../src/fetchHelper.js';
+
+    async function fetchRandomUser() {
+      try {
+        // Fetching data from randomuser.me API
+        const data = await FetchHelper.get('https://randomuser.me/api/');
+        
+        // Logging the data in the console for debugging
+        console.log(data);
+
+        // Extract user data
+        const user = data.results[0];
+        const name = `${user.name.first} ${user.name.last}`;
+        const country = user.location.country;
+        const picture = user.picture.large;
+
+        // Create a card to display user info
+        const userCard = document.createElement('div');
+        userCard.className = 'card';
+
+        // Add HTML content to the card
+        userCard.innerHTML = `
+          <img src="${picture}" alt="${name}">
+          <h3>${name}</h3>
+          <p>${country}</p>
+        `;
+
+        // Append the card to the container
+        document.getElementById('user-cards-container').appendChild(userCard);
+        
+      } catch (error) {
+        console.error('Error fetching random user:', error);
+      }
+    }
+
+    // Call the fetchRandomUser function to get and display data
+    fetchRandomUser();
+  </script>
+
+</body>
+</html>
