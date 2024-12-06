@@ -1,8 +1,25 @@
 {
+  "name": "fetchhelper",
+  "version": "1.0.0", 
+  "description": "A helper utility for making fetch requests with caching",
+  "main": "src/fetchHelper.js",
   "scripts": {
     "test": "jest",
     "build": "webpack"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shawn1042/fetchhelper"
+  },
+  "keywords": [
+    "fetch",
+    "utility",
+    "caching",
+    "http",
+    "api"
+  ],
+  "author": "shawn",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
