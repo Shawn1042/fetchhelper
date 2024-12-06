@@ -68,6 +68,6 @@ const customFetchHelper = new FetchHelper(500, 120000);
 
 # Installation
 ```javascript
-npm install fetchhelper
+npm install @shawn1042/fetchhelper
 ```
 
