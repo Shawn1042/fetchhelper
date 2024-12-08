@@ -1,6 +1,6 @@
 {
   "name": "@shawn1042/fetchhelper",
-  "version": "1.0.0", 
+  "version": "1.0.1",
   "description": "A helper utility for making fetch requests with caching",
   "main": "dist/main.bundle.js",
   "scripts": {
