@@ -8,6 +8,11 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    // The following three lines ensure that when you load main.bundle.js from a script tag,
+    // it will expose a global variable `fetchHelper`.
+    library: 'fetchHelper',
+    libraryTarget: 'umd',
+    globalObject: 'this',
   },
   mode: 'development',
   module: {
