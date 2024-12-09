@@ -1,11 +1,11 @@
 {
   "name": "@shawn1042/fetchhelper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A helper utility for making fetch requests with caching",
-  "main": "dist/main.bundle.js", 
-  "module": "dist/main.esm.js", 
+  "main": "dist/main.bundle.js",
+  "module": "dist/main.esm.js",
   "exports": {
-    "import": "./dist/main.esm.js", 
+    "import": "./dist/main.esm.js",
     "require": "./dist/main.bundle.js"
   },
   "type": "module",
