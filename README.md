@@ -66,8 +66,68 @@ You can create your own instance of FetchHelper with customized cache settings l
 const customFetchHelper = new FetchHelper(500, 120000);
 ```
 
-# Installation
+## Browser Usage
+
+You can use FetchHelper directly in your browser without any installation. Simply add the following to your HTML file:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FetchHelper Test</title>
+</head>
+<body>
+  <h1>Testing FetchHelper with Random User API</h1>
+  <script type="module">
+    import fetchHelper from "https://unpkg.com/@shawn1042/fetchhelper/dist/main.esm.js";
+
+    async function fetchUserData() {
+      try {
+        const data = await fetchHelper.get('https://randomuser.me/api/');
+        console.log('Fetched Data:', data);
+        const user = data.results[0];
+        document.body.innerHTML += `
+          <p>Name: ${user.name.first} ${user.name.last}</p>
+          <p>Email: ${user.email}</p>
+          <img src="${user.picture.medium}" alt="User Picture">
+        `;
+      } catch (err) {
+        console.error('Error:', err);
+      }
+    }
+
+    // Call the async function
+    fetchUserData();
+  </script>
+</body>
+</html>
+
+```
+
+# Installation locally (using the library locally)
 ```javascript
 npm install @shawn1042/fetchhelper
 ```
+```javascript
+import fetchHelper from '@shawn1042/fetchhelper';
+
+async function fetchUserData() {
+  try {
+    const data = await fetchHelper.get('https://randomuser.me/api/');
+    console.log('Fetched Data:', data);
+  } catch (err) {
+    console.error('Error:', err);
+  }
+}
+
+fetchUserData();
+```
+
+```javascript
+node index.js
+```
+
+
 
